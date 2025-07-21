@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aluwal Home</title>
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar-container">
+    <div class="navbar">
+      <div class="navbar-top">
+        <!-- Logo -->
+        <div class="logo">
+          <a href="index.html"><img src="img/logo-aluwal.png" alt="Aluwal Home" /></a>
+        </div>
+
+        <!-- Menú de navegación -->
+        <nav class="menu-categorias" id="navLinks">
+          <a href="#productos">Productos</a>
+          <a href="#">Nosotros</a>
+          <a href="#" class="promo-link">Promociones</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+
+        <!-- Hamburguesa -->
+        <button class="hamburger" id="hamburger" aria-label="Menú">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <img src="img/banner-vintage.jpg" alt="Ambiente elegante" class="hero-img">
+    <div class="hero-content">
+      <h1 class="hero-title">Espacios con alma.</h1>
+      <p class="hero-subtitle">Lo esencial está en los detalles.</p>
+    </div>
+  </section>
+
+  <!-- CATEGORÍAS -->
+  <section class="categorias" id="productos">
+    <a href="#productos" class="categoria-card" data-anim="fade-up">
+      <img src="img/cortinas.jpg" alt="Cortinas Roller" />
+      <div class="categoria-contenido">
+        <h2>Cortinas Roller</h2>
+        <p>Elegancia, funcionalidad y diseño en cada ambiente.</p>
+        <span class="flecha-hover">→</span>
+      </div>
+    </a>
+
+    <a href="#productos" class="categoria-card" data-anim="fade-up">
+      <img src="img/espejos.jpg" alt="Espejos Decorativos" />
+      <div class="categoria-contenido">
+        <h2>Espejos Decorativos</h2>
+        <p>Reflejá tu estilo con piezas únicas y modernas.</p>
+        <span class="flecha-hover">→</span>
+      </div>
+    </a>
+  </section>
+
+  <!-- INSPIRACIÓN -->
+  <section class="carrusel-inspiracion">
+    <h2>Inspirate con nuestros diseños</h2>
+    <p>Ambientes donde el diseño se integra con la funcionalidad.</p>
+    <div class="slider">
+      <div class="slide-track">
+        <img src="img/ambiente1.jpg" alt="Inspiración 1">
+        <img src="img/ambiente2.jpg" alt="Inspiración 2">
+        <img src="img/ambiente3.jpg" alt="Inspiración 3">
+        <img src="img/ambiente4.jpg" alt="Inspiración 4">
+        <img src="img/ambiente5.jpg" alt="Inspiración 5">
+      </div>
+    </div>
+  </section>
+
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/5491124968339" class="whatsapp-button" target="_blank" aria-label="Enviar mensaje por WhatsApp">
+    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg" alt="WhatsApp" />
+  </a>
+
+  <!-- CONTACTO -->
+  <section class="contacto" id="contacto">
+    <div class="contacto-contenedor">
+      <h2>¿Querés que te asesoremos?</h2>
+      <p>Dejanos tus datos y nos pondremos en contacto lo antes posible.</p>
+      <form action="https://formspree.io/f/yourformid" method="POST">
+        <input type="text" name="nombre" placeholder="Tu nombre" required>
+        <input type="email" name="teléfono" placeholder="Tu número de teléfono" required>
+        <textarea name="consulta" rows="5" placeholder="Dejanos tu consulta..." required></textarea>
+        <button type="submit" class="btn-cta">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 Aluwal Home. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("navLinks");
+
+      if (hamburger && navLinks) {
+        hamburger.addEventListener("click", () => {
+          if (navLinks.classList.contains("active")) {
+            navLinks.classList.add("fade-out");
+            setTimeout(() => {
+              navLinks.classList.remove("active", "fade-out");
+            }, 300);
+          } else {
+            navLinks.classList.add("active");
+          }
+        });
+
+        navLinks.querySelectorAll("a").forEach(link => {
+          link.addEventListener("click", () => {
+            navLinks.classList.add("fade-out");
+            setTimeout(() => {
+              navLinks.classList.remove("active", "fade-out");
+            }, 300);
+          });
+        });
+      }
+
+      const animElems = document.querySelectorAll('[data-anim]');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('anim-visible');
+          }
+        });
+      }, { threshold: 0.2 });
+
+      animElems.forEach(el => observer.observe(el));
+    });
+  </script>
+
+</body>
+</html>

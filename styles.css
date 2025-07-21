@@ -1,0 +1,592 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
+
+/* =========================
+   RESET & TIPOGRAFÍA BASE
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: transparent;
+  color: #1a1a1a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* =========================
+        NAVBAR
+========================= */
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.navbar {
+  pointer-events: all;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-top {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 30px;
+  padding: 10px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  max-width: 1200px;
+  width: 90%;
+  margin: 20px auto;
+  position: relative;
+}
+
+/* Logo */
+.logo img {
+  height: 50px;
+  width: auto;
+  margin-right: 20px;
+}
+
+/* Menú Categorías */
+.menu-categorias {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-categorias a {
+  text-decoration: none;
+  color: #1a1a1a;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.menu-categorias a:hover {
+  color: #D5AB00;
+}
+
+/* Íconos usuario */
+.user-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.user-icons a {
+  color: #1a1a1a;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.user-icons a:hover {
+  color: #D5AB00;
+}
+
+/* Hamburguesa */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #0D2248;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* =========================
+           HERO
+========================= */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.85) sepia(0.1);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.3), rgba(255,255,255,0.6));
+  z-index: 1;
+}
+
+.hero-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 2;
+  color: #1a1a1a;
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-size: 3.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #444;
+}
+
+/* =========================
+         CATEGORÍAS
+========================= */
+.categorias {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 80px 20px;
+  gap: 40px;
+  background-color: #fdfbf7;
+}
+
+.categoria-card {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  width: 360px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.categoria-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
+}
+
+.categoria-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.categoria-contenido {
+  padding: 24px;
+}
+
+.categoria-contenido h2 {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.categoria-contenido p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+/* =========================
+    FORMULARIO DE CONTACTO
+========================= */
+.contacto {
+  background-color: #f9f7f4;
+  padding: 80px 20px;
+}
+
+.contacto-contenedor {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contacto-contenedor h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.contacto-contenedor p {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  color: #555;
+}
+
+.contacto form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contacto input,
+.contacto textarea {
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.contacto input:focus,
+.contacto textarea:focus {
+  outline: none;
+  border-color: #1a1a1a;
+}
+
+.btn-cta {
+  padding: 14px 28px;
+  background-color: #1a1a1a;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-cta:hover {
+  background-color: #444;
+}
+
+/* =========================
+     BOTÓN WHATSAPP
+========================= */
+.whatsapp-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  z-index: 1000;
+  background-color: #25D366;
+  border-radius: 50%;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-button img {
+  width: 28px;
+  height: 28px;
+}
+
+/* =========================
+           FOOTER
+========================= */
+.footer {
+  background-color: #f1f1f1;
+  padding: 30px 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* =========================
+        ANIMACIONES
+========================= */
+[data-anim] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.anim-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.anim-hero {
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* =========================
+     CARRUSEL INSPIRACIÓN
+========================= */
+.carrusel-inspiracion {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: #fdfbf7;
+}
+
+.carrusel-inspiracion h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #0D2247;
+  margin-bottom: 10px;
+}
+
+.carrusel-inspiracion p {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 40px;
+}
+
+.slider {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  display: flex;
+  gap: 32px;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slide-track {
+  display: flex;
+  gap: 32px;
+}
+
+.slide-track img {
+  scroll-snap-align: center;
+  flex: 0 0 auto;
+  width: 420px;
+  height: 280px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.slide-track img:hover {
+  transform: scale(1.04);
+}
+
+/* =========================
+     MENÚ HAMBURGUESA MOBILE
+========================= */
+@media (max-width: 768px) {
+  .navbar-top {
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .menu-categorias {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 220px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    z-index: 998;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+  }
+
+  .menu-categorias.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .menu-categorias.fade-out {
+    opacity: 0 !important;
+    transform: translateY(-10px) !important;
+  }
+
+  .menu-categorias a {
+    font-size: 16px;
+    font-weight: 500;
+    color: #0D2248;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 6px 0;
+    width: 100%;
+    text-align: right;
+  }
+
+  .menu-categorias a:hover {
+    color: #D5AB00;
+  }
+
+  .hamburger {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #0D2248;
+    cursor: pointer;
+    z-index: 1001;
+  }
+
+  .user-icons {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .categoria-card {
+    width: 100%;
+    max-width: 340px;
+  }
+}
+/* =========================
+   PRODUCTOS - BÚSQUEDA
+========================= */
+.productos-page {
+  padding: 120px 40px 60px;
+  background-color: #fdfbf7;
+}
+
+.buscador-section {
+  max-width: 800px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.buscador-section input {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  font-family: 'DM Sans', sans-serif;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.buscador-section input:focus {
+  border-color: #0D2248;
+  box-shadow: 0 0 0 2px rgba(13,34,72,0.1);
+}
+
+/* =========================
+     GRILLA DE PRODUCTOS
+========================= */
+.grid-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* =========================
+      TARJETA DE PRODUCTO
+========================= */
+.producto-card {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.producto-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.producto-card h3 {
+  font-size: 1.1rem;
+  color: #0D2248;
+  margin-bottom: 8px;
+}
+
+.producto-card p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.producto-card .stock {
+  font-size: 0.85rem;
+  color: #888;
+  display: block;
+}
+
+/* =========================
+     WHATSAPP BUTTON
+========================= */
+.btn-whatsapp {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #25D366;
+  padding: 12px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: transform 0.2s ease;
+}
+
+.btn-whatsapp:hover {
+  transform: scale(1.1);
+}
+
+.btn-whatsapp img {
+  width: 26px;
+  height: 26px;
+}
